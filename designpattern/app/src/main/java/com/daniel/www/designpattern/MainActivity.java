@@ -9,6 +9,13 @@ import android.widget.Toast;
 
 import com.daniel.www.abstractfactory.Provider;
 import com.daniel.www.abstractfactory.SendSmsFactory;
+import com.daniel.www.adapter.classs.Adapter;
+import com.daniel.www.adapter.interfaces.SourceSub1;
+import com.daniel.www.adapter.interfaces.SourceSub2;
+import com.daniel.www.adapter.interfaces.Sourceable;
+import com.daniel.www.adapter.objects.Source;
+import com.daniel.www.adapter.objects.Wrapper1;
+import com.daniel.www.builder.Builder;
 import com.daniel.www.factorymethod.common.SendCommonFactory;
 import com.daniel.www.factorymethod.more.SendMoreFactory;
 import com.daniel.www.factorymethod.statics.SendStaticFactory;
@@ -92,6 +99,33 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         sender.send();
     }
 
+    private void builderTest(){
+        Builder builder = new Builder();
+        builder.produceMailSender(10);
+    }
+
+    private void adapterClassTest(){
+        com.daniel.www.adapter.classs.Targetable target = new Adapter();
+        target.method1();
+        target.method2();
+    }
+
+    private void adapterObjectTest(){
+        Source source = new Source();
+        com.daniel.www.adapter.objects.Targetable target = new Wrapper1(source);
+        target.method1();
+        target.method2();
+    }
+
+    private void adapterInterfaceTest(){
+        Sourceable source1 = new SourceSub1();
+        Sourceable source2 = new SourceSub2();
+
+        source1.method1();
+        source1.method2();
+        source2.method1();
+        source2.method2();
+    }
 
     //endregion
 
@@ -123,19 +157,19 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
 
                     break;
                 } else if (mDatas.get(5).equals(text)) {
-
+                    builderTest();
                     break;
                 } else if (mDatas.get(6).equals(text)) {
 
                     break;
                 } else if (mDatas.get(7).equals(text)) {
-
+                    adapterClassTest();
                     break;
                 } else if (mDatas.get(8).equals(text)) {
-
+                    adapterObjectTest();
                     break;
                 } else if (mDatas.get(9).equals(text)) {
-
+                    adapterInterfaceTest();
                     break;
                 } else if (mDatas.get(10).equals(text)) {
 
