@@ -13,12 +13,14 @@ import com.daniel.www.adapter.classs.Adapter;
 import com.daniel.www.adapter.interfaces.SourceSub1;
 import com.daniel.www.adapter.interfaces.SourceSub2;
 import com.daniel.www.adapter.interfaces.Sourceable;
-import com.daniel.www.adapter.objects.Source;
 import com.daniel.www.adapter.objects.Wrapper1;
 import com.daniel.www.builder.Builder;
+import com.daniel.www.decorator.Decorator;
+import com.daniel.www.facade.Computer;
 import com.daniel.www.factorymethod.common.SendCommonFactory;
 import com.daniel.www.factorymethod.more.SendMoreFactory;
 import com.daniel.www.factorymethod.statics.SendStaticFactory;
+import com.daniel.www.proxy.Proxy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
     }
 
     private void adapterObjectTest(){
-        Source source = new Source();
+        com.daniel.www.adapter.objects.Source source = new com.daniel.www.adapter.objects.Source();
         com.daniel.www.adapter.objects.Targetable target = new Wrapper1(source);
         target.method1();
         target.method2();
@@ -125,6 +127,23 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         source1.method2();
         source2.method1();
         source2.method2();
+    }
+
+    private void decoratorTest(){
+        com.daniel.www.decorator.Sourceable source = new com.daniel.www.decorator.Source();
+        com.daniel.www.decorator.Sourceable obj = new Decorator(source);
+        obj.method();
+    }
+
+    private void proxyTest(){
+        com.daniel.www.proxy.Sourceable source = new Proxy();
+        source.method();
+    }
+
+    private void facadeTest(){
+        Computer computer = new Computer();
+        computer.startup();
+        computer.shutdown();
     }
 
     //endregion
@@ -172,13 +191,13 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
                     adapterInterfaceTest();
                     break;
                 } else if (mDatas.get(10).equals(text)) {
-
+                    decoratorTest();
                     break;
                 } else if (mDatas.get(11).equals(text)) {
-
+                    proxyTest();
                     break;
                 } else if (mDatas.get(12).equals(text)) {
-
+                    facadeTest();
                     break;
                 } else if (mDatas.get(13).equals(text)) {
 
