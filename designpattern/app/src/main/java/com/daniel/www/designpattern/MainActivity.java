@@ -7,8 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.daniel.www.factorymethod.common.SendFactory;
-import com.daniel.www.factorymethod.common.Sender;
+import com.daniel.www.abstractfactory.Provider;
+import com.daniel.www.abstractfactory.SendSmsFactory;
+import com.daniel.www.factorymethod.common.SendCommonFactory;
+import com.daniel.www.factorymethod.more.SendMoreFactory;
+import com.daniel.www.factorymethod.statics.SendStaticFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,9 +71,24 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
     }
 
     //region 私有方法
-    private void factoryTest() {
-        SendFactory factory = new SendFactory();
-        Sender sender = factory.produce("sms");
+    private void factoryCommonTest() {
+        SendCommonFactory factory = new SendCommonFactory();
+        com.daniel.www.factorymethod.Sender sender = factory.produce("sms");
+        sender.send();
+    }
+    private void factoryMoreTest() {
+        SendMoreFactory factory = new SendMoreFactory();
+        com.daniel.www.factorymethod.Sender sender = factory.produceMail();
+        sender.send();
+    }
+    private void factoryStaticTest() {
+        com.daniel.www.factorymethod.Sender sender = SendStaticFactory.produceMail();
+        sender.send();
+    }
+
+    private void abstractFactoryTest(){
+        Provider provider = new SendSmsFactory();
+        com.daniel.www.abstractfactory.Sender sender = provider.produce();
         sender.send();
     }
 
@@ -90,16 +108,16 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         if (mDatas != null && mDatas.size() > 0) {
             for (int i = 0; i < mDatas.size(); i++) {
                 if (mDatas.get(0).equals(text)) {
-                    factoryTest();
+                    factoryCommonTest();
                     break;
                 } else if (mDatas.get(1).equals(text)) {
-
+                    factoryMoreTest();
                     break;
                 } else if (mDatas.get(2).equals(text)) {
-
+                    factoryStaticTest();
                     break;
                 } else if (mDatas.get(3).equals(text)) {
-
+                    abstractFactoryTest();
                     break;
                 } else if (mDatas.get(4).equals(text)) {
 

@@ -1,4 +1,4 @@
-package com.daniel.www.factorymethod.common;
+package com.daniel.www.factorymethod;
 
 /**
  * desc:SmsSender
