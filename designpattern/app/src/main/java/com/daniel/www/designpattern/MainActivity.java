@@ -90,61 +90,88 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         if (mDatas != null && mDatas.size() > 0) {
             for (int i = 0; i < mDatas.size(); i++) {
                 if (mDatas.get(0).equals(text)) {
-
+                    factoryTest();
+                    break;
                 } else if (mDatas.get(1).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(2).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(3).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(4).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(5).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(6).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(7).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(8).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(9).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(10).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(11).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(12).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(13).equals(text)) {
 
                 } else if (mDatas.get(14).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(15).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(16).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(17).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(18).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(19).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(20).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(21).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(22).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(23).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(24).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(25).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(26).equals(text)) {
 
+                    break;
                 } else if (mDatas.get(27).equals(text)) {
 
+                    break;
                 }
             }
         }
