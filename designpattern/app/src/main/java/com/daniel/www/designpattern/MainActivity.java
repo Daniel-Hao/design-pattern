@@ -51,33 +51,33 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
 
     private void initData() {
         mDatas = new ArrayList<>();
-        mDatas.add("Factory Method 普通工厂模式");
-        mDatas.add("Factory Method 多个工厂方法模式");
-        mDatas.add("Factory Method 静态工厂方法模式");
-        mDatas.add("Abstract Factory 抽象工厂模式");
-        mDatas.add("Singleton 单例模式");
-        mDatas.add("Builder 建造者模式");
-        mDatas.add("Prototype 原型模式");
-        mDatas.add("Adapter 类的适配器模式");
-        mDatas.add("Adapter 对象的适配器模式");
-        mDatas.add("Adapter 接口的适配器模式");
-        mDatas.add("Decorator 装饰模式");
-        mDatas.add("Proxy 代理模式");
-        mDatas.add("Facade 外观模式");
-        mDatas.add("Bridge 桥接模式");
-        mDatas.add("Composite 组合模式");
-        mDatas.add("Flyweight 享元模式");
-        mDatas.add("Strategy 策略模式");
-        mDatas.add("Template Method 模板方法模式");
-        mDatas.add("Observer 观察者模式");
-        mDatas.add("Iterator 迭代子模式");
-        mDatas.add("Chain of Responsibility 责任链模式");
-        mDatas.add("Command 命令模式");
-        mDatas.add("Memento 备忘录模式");
-        mDatas.add("State 状态模式");
-        mDatas.add("Visitor 访问者模式");
-        mDatas.add("Mediator 中介者模式");
-        mDatas.add("Interpreter 解释器模式");
+        mDatas.add("0.Factory Method 普通工厂模式");
+        mDatas.add("1.Factory Method 多个工厂方法模式");
+        mDatas.add("2.Factory Method 静态工厂方法模式");
+        mDatas.add("3.Abstract Factory 抽象工厂模式");
+        mDatas.add("4.Singleton 单例模式");
+        mDatas.add("5.Builder 建造者模式");
+        mDatas.add("6.Prototype 原型模式");
+        mDatas.add("7.Adapter 类的适配器模式");
+        mDatas.add("8.Adapter 对象的适配器模式");
+        mDatas.add("9.Adapter 接口的适配器模式");
+        mDatas.add("10.Decorator 装饰模式");
+        mDatas.add("11.Proxy 代理模式");
+        mDatas.add("12.Facade 外观模式");
+        mDatas.add("13.Bridge 桥接模式");
+        mDatas.add("14.Composite 组合模式");
+        mDatas.add("15.Flyweight 享元模式");
+        mDatas.add("16.Strategy 策略模式");
+        mDatas.add("17.Template Method 模板方法模式");
+        mDatas.add("18.Observer 观察者模式");
+        mDatas.add("19.Iterator 迭代子模式");
+        mDatas.add("20.Chain of Responsibility 责任链模式");
+        mDatas.add("21.Command 命令模式");
+        mDatas.add("22.Memento 备忘录模式");
+        mDatas.add("23.State 状态模式");
+        mDatas.add("24.Visitor 访问者模式");
+        mDatas.add("25.Mediator 中介者模式");
+        mDatas.add("26.Interpreter 解释器模式");
     }
 
     //region 私有方法
@@ -171,6 +171,13 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         System.out.println("build the tree finished!");
     }
 
+    private void strategyTest(){
+        String exp = "2+8";
+        com.daniel.www.strategy.ICalculator cal = new com.daniel.www.strategy.Plus();
+        int result = cal.calculate(exp);
+        System.out.println(result);
+    }
+
 
     //endregion
 
@@ -235,7 +242,7 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
 
                     break;
                 } else if (mDatas.get(16).equals(text)) {
-
+                    strategyTest();
                     break;
                 } else if (mDatas.get(17).equals(text)) {
 
