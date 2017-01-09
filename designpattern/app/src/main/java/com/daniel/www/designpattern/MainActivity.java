@@ -262,6 +262,14 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         mediator.createMediator();
         mediator.workAll();
     }
+
+    private void interpreterTest(){
+        // 计算9+2-8的值
+        int result = new com.daniel.www.interpreter.Minus().interpret(
+                (new com.daniel.www.interpreter.Contexts(new com.daniel.www.interpreter.Plus()
+                .interpret(new com.daniel.www.interpreter.Contexts(9, 2)), 8)));
+        System.out.println(result);
+    }
     //endregion
 
     //region接口
@@ -355,7 +363,7 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
                     mediatorTest();
                     break;
                 } else if (mDatas.get(26).equals(text)) {
-
+                    interpreterTest();
                     break;
                 }
             }
