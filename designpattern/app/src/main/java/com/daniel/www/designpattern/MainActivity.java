@@ -10,11 +10,12 @@ import android.widget.Toast;
 import com.daniel.www.abstractfactory.Provider;
 import com.daniel.www.abstractfactory.SendSmsFactory;
 import com.daniel.www.adapter.classs.Adapter;
-import com.daniel.www.adapter.interfaces.SourceSub1;
-import com.daniel.www.adapter.interfaces.SourceSub2;
-import com.daniel.www.adapter.interfaces.Sourceable;
 import com.daniel.www.adapter.objects.Wrapper1;
+import com.daniel.www.bridge.Bridge;
+import com.daniel.www.bridge.MyBridge;
 import com.daniel.www.builder.Builder;
+import com.daniel.www.composite.Tree;
+import com.daniel.www.composite.TreeNode;
 import com.daniel.www.decorator.Decorator;
 import com.daniel.www.facade.Computer;
 import com.daniel.www.factorymethod.common.SendCommonFactory;
@@ -120,8 +121,8 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
     }
 
     private void adapterInterfaceTest(){
-        Sourceable source1 = new SourceSub1();
-        Sourceable source2 = new SourceSub2();
+        com.daniel.www.adapter.interfaces.Sourceable source1 = new com.daniel.www.adapter.interfaces.SourceSub1();
+        com.daniel.www.adapter.interfaces.Sourceable source2 = new com.daniel.www.adapter.interfaces.SourceSub2();
 
         source1.method1();
         source1.method2();
@@ -145,6 +146,31 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         computer.startup();
         computer.shutdown();
     }
+
+    private void briageTest(){
+        Bridge bridge = new MyBridge();
+
+        /*调用第一个对象*/
+        com.daniel.www.bridge.Sourceable source1 = new com.daniel.www.bridge.SourceSub1();
+        bridge.setSource(source1);
+        bridge.method();
+
+        /*调用第二个对象*/
+        com.daniel.www.bridge.Sourceable source2 = new com.daniel.www.bridge.SourceSub2();
+        bridge.setSource(source2);
+        bridge.method();
+    }
+
+    private void compositeTest(){
+        Tree tree = new Tree("A");
+        TreeNode nodeB = new TreeNode("B");
+        TreeNode nodeC = new TreeNode("C");
+
+        nodeB.add(nodeC);
+        tree.root.add(nodeB);
+        System.out.println("build the tree finished!");
+    }
+
 
     //endregion
 
@@ -200,9 +226,10 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
                     facadeTest();
                     break;
                 } else if (mDatas.get(13).equals(text)) {
-
+                    briageTest();
+                    break;
                 } else if (mDatas.get(14).equals(text)) {
-
+                    compositeTest();
                     break;
                 } else if (mDatas.get(15).equals(text)) {
 
