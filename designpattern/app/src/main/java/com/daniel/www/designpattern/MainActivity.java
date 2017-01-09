@@ -86,41 +86,43 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         com.daniel.www.factorymethod.Sender sender = factory.produce("sms");
         sender.send();
     }
+
     private void factoryMoreTest() {
         SendMoreFactory factory = new SendMoreFactory();
         com.daniel.www.factorymethod.Sender sender = factory.produceMail();
         sender.send();
     }
+
     private void factoryStaticTest() {
         com.daniel.www.factorymethod.Sender sender = SendStaticFactory.produceMail();
         sender.send();
     }
 
-    private void abstractFactoryTest(){
+    private void abstractFactoryTest() {
         Provider provider = new SendSmsFactory();
         com.daniel.www.abstractfactory.Sender sender = provider.produce();
         sender.send();
     }
 
-    private void builderTest(){
+    private void builderTest() {
         Builder builder = new Builder();
         builder.produceMailSender(10);
     }
 
-    private void adapterClassTest(){
+    private void adapterClassTest() {
         com.daniel.www.adapter.classs.Targetable target = new Adapter();
         target.method1();
         target.method2();
     }
 
-    private void adapterObjectTest(){
+    private void adapterObjectTest() {
         com.daniel.www.adapter.objects.Source source = new com.daniel.www.adapter.objects.Source();
         com.daniel.www.adapter.objects.Targetable target = new Wrapper1(source);
         target.method1();
         target.method2();
     }
 
-    private void adapterInterfaceTest(){
+    private void adapterInterfaceTest() {
         com.daniel.www.adapter.interfaces.Sourceable source1 = new com.daniel.www.adapter.interfaces.SourceSub1();
         com.daniel.www.adapter.interfaces.Sourceable source2 = new com.daniel.www.adapter.interfaces.SourceSub2();
 
@@ -130,24 +132,24 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         source2.method2();
     }
 
-    private void decoratorTest(){
+    private void decoratorTest() {
         com.daniel.www.decorator.Sourceable source = new com.daniel.www.decorator.Source();
         com.daniel.www.decorator.Sourceable obj = new Decorator(source);
         obj.method();
     }
 
-    private void proxyTest(){
+    private void proxyTest() {
         com.daniel.www.proxy.Sourceable source = new Proxy();
         source.method();
     }
 
-    private void facadeTest(){
+    private void facadeTest() {
         Computer computer = new Computer();
         computer.startup();
         computer.shutdown();
     }
 
-    private void briageTest(){
+    private void briageTest() {
         Bridge bridge = new MyBridge();
 
         /*调用第一个对象*/
@@ -161,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         bridge.method();
     }
 
-    private void compositeTest(){
+    private void compositeTest() {
         Tree tree = new Tree("A");
         TreeNode nodeB = new TreeNode("B");
         TreeNode nodeC = new TreeNode("C");
@@ -171,14 +173,28 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         System.out.println("build the tree finished!");
     }
 
-    private void strategyTest(){
+    private void strategyTest() {
         String exp = "2+8";
         com.daniel.www.strategy.ICalculator cal = new com.daniel.www.strategy.Plus();
         int result = cal.calculate(exp);
         System.out.println(result);
     }
 
+    private void templatemethodTest() {
+        String exp = "8+8";
+        com.daniel.www.templatemethod.AbstractCalculator cal = new com.daniel.www.templatemethod.Plus();
+        int result = cal.calculate(exp, "\\+");
+        System.out.println(result);
+    }
 
+    private void ObserverTest() {
+
+        com.daniel.www.observer.Subject sub = new com.daniel.www.observer.MySubject();
+        sub.add(new com.daniel.www.observer.Observer1());
+        sub.add(new com.daniel.www.observer.Observer2());
+        sub.operation();
+
+    }
     //endregion
 
     //region接口
@@ -245,10 +261,10 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
                     strategyTest();
                     break;
                 } else if (mDatas.get(17).equals(text)) {
-
+                    templatemethodTest();
                     break;
                 } else if (mDatas.get(18).equals(text)) {
-
+                    ObserverTest();
                     break;
                 } else if (mDatas.get(19).equals(text)) {
 
