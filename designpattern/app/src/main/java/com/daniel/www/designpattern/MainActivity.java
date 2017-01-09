@@ -213,11 +213,54 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         h1.operator();
     }
 
-    private void commandTest(){
+    private void commandTest() {
         com.daniel.www.command.Receiver receiver = new com.daniel.www.command.Receiver();
         com.daniel.www.command.Command cmd = new com.daniel.www.command.MyCommand(receiver);
         com.daniel.www.command.Invoker invoker = new com.daniel.www.command.Invoker(cmd);
         invoker.action();
+    }
+
+    private void mementoTest() {
+        // 创建原始类
+        com.daniel.www.memento.Original origi = new com.daniel.www.memento.Original("egg");
+
+        // 创建备忘录
+        com.daniel.www.memento.Storage storage = new com.daniel.www.memento.Storage(origi.createMemento());
+
+        // 修改原始类的状态
+        System.out.println("初始化状态为：" + origi.getValue());
+        origi.setValue("niu");
+        System.out.println("修改后的状态为：" + origi.getValue());
+
+        // 回复原始类的状态
+        origi.restoreMemento(storage.getMemento());
+        System.out.println("恢复后的状态为：" + origi.getValue());
+    }
+
+
+    private void stateTest() {
+        com.daniel.www.state.State state = new com.daniel.www.state.State();
+        com.daniel.www.state.Contexts context = new com.daniel.www.state.Contexts(state);
+
+        //设置第一种状态
+        state.setValue("state1");
+        context.method();
+
+        //设置第二种状态
+        state.setValue("state2");
+        context.method();
+    }
+
+    private void visitorTest() {
+        com.daniel.www.visitor.Visitor visitor = new com.daniel.www.visitor.MyVisitor();
+        com.daniel.www.visitor.Subjects sub = new com.daniel.www.visitor.MySubject();
+        sub.accept(visitor);
+    }
+
+    private void mediatorTest(){
+        com.daniel.www.mediator.Mediator mediator = new com.daniel.www.mediator.MyMediator();
+        mediator.createMediator();
+        mediator.workAll();
     }
     //endregion
 
@@ -300,21 +343,18 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
                     commandTest();
                     break;
                 } else if (mDatas.get(22).equals(text)) {
-
+                    mementoTest();
                     break;
                 } else if (mDatas.get(23).equals(text)) {
-
+                    stateTest();
                     break;
                 } else if (mDatas.get(24).equals(text)) {
-
+                    visitorTest();
                     break;
                 } else if (mDatas.get(25).equals(text)) {
-
+                    mediatorTest();
                     break;
                 } else if (mDatas.get(26).equals(text)) {
-
-                    break;
-                } else if (mDatas.get(27).equals(text)) {
 
                     break;
                 }
