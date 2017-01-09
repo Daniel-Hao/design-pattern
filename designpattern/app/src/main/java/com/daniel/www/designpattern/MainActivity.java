@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         mDatas.add("16.Strategy 策略模式");
         mDatas.add("17.Template Method 模板方法模式");
         mDatas.add("18.Observer 观察者模式");
-        mDatas.add("19.Iterator 迭代子模式");
+        mDatas.add("19.Iterators 迭代子模式");
         mDatas.add("20.Chain of Responsibility 责任链模式");
         mDatas.add("21.Command 命令模式");
         mDatas.add("22.Memento 备忘录模式");
@@ -193,7 +193,31 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
         sub.add(new com.daniel.www.observer.Observer1());
         sub.add(new com.daniel.www.observer.Observer2());
         sub.operation();
+    }
 
+    private void iteratorTest() {
+        com.daniel.www.iterator.Collections collection = new com.daniel.www.iterator.MyCollection();
+        com.daniel.www.iterator.Iterators it = collection.iterator();
+
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
+
+    private void chainofresponsibilityTest() {
+        com.daniel.www.chainofresponsibility.MyHandler h1 = new com.daniel.www.chainofresponsibility.MyHandler("h1");
+        com.daniel.www.chainofresponsibility.MyHandler h2 = new com.daniel.www.chainofresponsibility.MyHandler("h2");
+        com.daniel.www.chainofresponsibility.MyHandler h3 = new com.daniel.www.chainofresponsibility.MyHandler("h3");
+        h1.setHandler(h2);
+        h2.setHandler(h3);
+        h1.operator();
+    }
+
+    private void commandTest(){
+        com.daniel.www.command.Receiver receiver = new com.daniel.www.command.Receiver();
+        com.daniel.www.command.Command cmd = new com.daniel.www.command.MyCommand(receiver);
+        com.daniel.www.command.Invoker invoker = new com.daniel.www.command.Invoker(cmd);
+        invoker.action();
     }
     //endregion
 
@@ -267,13 +291,13 @@ public class MainActivity extends AppCompatActivity implements DesignAdapter.OnI
                     ObserverTest();
                     break;
                 } else if (mDatas.get(19).equals(text)) {
-
+                    iteratorTest();
                     break;
                 } else if (mDatas.get(20).equals(text)) {
-
+                    chainofresponsibilityTest();
                     break;
                 } else if (mDatas.get(21).equals(text)) {
-
+                    commandTest();
                     break;
                 } else if (mDatas.get(22).equals(text)) {
 
